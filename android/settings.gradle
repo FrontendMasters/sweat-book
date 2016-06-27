@@ -1,0 +1,3 @@
+rootProject.name = 'SweatBook'
+
+include ':app'
