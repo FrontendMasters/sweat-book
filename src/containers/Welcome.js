@@ -8,29 +8,31 @@ import {
 } from 'react-native';
 
 export const Welcome = (props) => (
-  <LinearGradient
-    colors={['#4A148C', '#880E4F']}
-    style={styles.container}
-  >
-    <View style={styles.titleContianer}>
-      <Text style={styles.title}>
-        Sweatbook
-      </Text>
-    </View>
-    <View style={styles.lastWorkoutContainer}>
-      <Text style={styles.lastWorkoutTitle}>
-        Your last workout
-      </Text>
-    </View>
-    <View style={{padding: 30 }}>
-      <Button
-        onPress={props.onStartWorkOut}
-        style={styles.button}
-        textStyle={styles.buttonText}
-        children={'Start Workout'}
-      />
-    </View>
-  </LinearGradient>
+  <View style={{flex: 1}}>
+    <LinearGradient
+      colors={['#4A148C', '#880E4F']}
+      style={styles.container}
+    >
+      <View style={styles.titleContianer}>
+        <Text style={styles.title}>
+          Sweatbook
+        </Text>
+      </View>
+      <View style={styles.lastWorkoutContainer}>
+        <Text style={styles.lastWorkoutTitle}>
+          Your last workout
+        </Text>
+      </View>
+      <View style={{padding: 30 }}>
+        <Button
+          onPress={props.onStartWorkOut}
+          style={styles.button}
+          textStyle={styles.buttonText}
+          children={'Start Workout'}
+        />
+      </View>
+    </LinearGradient>
+  </View>
 );
 
 const styles = StyleSheet.create({
