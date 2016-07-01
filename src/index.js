@@ -1,10 +1,10 @@
 import React from 'react';
-import { Welcome } from './containers';
-import { Provider } from 'react-redux';
-import { store } from './store';
+import { View, Text } from 'react-native';
 
 export const Root = () => (
-  <Provider store={store}>
-    <Welcome />
-  </Provider>
+  <View>
+    <Text>
+      Hello! change me!
+    </Text>
+  </View>
 );
