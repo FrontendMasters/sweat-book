@@ -26,8 +26,8 @@ export class ExerciseList extends Component {
     this.props.closeModal();
   }
 
-  addExcerise = (excercise) => {
-    this.props.addExercise(excercise)
+  addExercise = (exercise) => {
+    this.props.addExercise(exercise)
     .then(() => this.props.closeModal());
   }
 
@@ -74,7 +74,7 @@ export class ExerciseList extends Component {
         <ListView
           dataSource={this.state.matchingExercises}
           renderRow={rowData => (
-            <TouchableWithoutFeedback onPress={() => this.addExcerise.call(this, rowData)}>
+            <TouchableWithoutFeedback onPress={() => this.addExercise.call(this, rowData)}>
               <View style={styles.row}>
                 <Text style={styles.rowName}>
                   {rowData.name}

@@ -15,7 +15,7 @@ const mapStateToProps = (state) => ({
   user: state.user,
   currentWorkout: state.currentWorkout,
   activeTab: state.ui.activeTab,
-  excerciseModal: state.ui.excerciseModal,
+  exerciseModal: state.ui.exerciseModal,
   exercises: state.exercises,
   categories: state.categories
 });
@@ -27,8 +27,8 @@ const mapActionsToProps = (dispatch) => ({
   setModalVisibility(visible) {
     return dispatch(setExerciseModalVisibility(visible));
   },
-  addExercise(excercise) {
-    return dispatch(addExerciseToCurrentWorkout(excercise));
+  addExercise(exercise) {
+    return dispatch(addExerciseToCurrentWorkout(exercise));
   }
 });
 
@@ -80,7 +80,7 @@ class Container extends Component {
           addExercise={this.props.addExercise}
           categories={this.props.categories}
           exercises={this.props.exercises}
-          visible={this.props.excerciseModal}
+          visible={this.props.exerciseModal}
           closeModal={() => this.props.setModalVisibility(false)}
         />
       </View>

@@ -2,7 +2,7 @@ import * as types from '../actions/types';
 
 export const ui = (state = {
   activeTab: 0,
-  excerciseModal: false
+  exerciseModal: false
 }, { type, payload }) => {
 
   switch (type) {
@@ -14,7 +14,7 @@ export const ui = (state = {
     case types.SET_EXECERCISE_VISIBILITY:
       return {
         ...state,
-        excerciseModal: payload
+        exerciseModal: payload
       };
     default:
       return state;
