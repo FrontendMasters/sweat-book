@@ -11,19 +11,19 @@ export const fetchCurrentWorkout = () => (
 );
 
 
-export const addExcerciseToCurrentWorkout = (excercise) => (
+export const addExerciseToCurrentWorkout = (exercise) => (
   (dispatch, getState) => (
     dispatch(fetchCurrentWorkout())
     .then(() => {
       const { currentWorkout } = getState();
-      const currentExcercise = {
-        ...excercise,
+      const currentExercise = {
+        ...exercise,
         sets: []
       };
-      const updatedWorkout = [...currentWorkout, currentExcercise];
+      const updatedWorkout = [...currentWorkout, currentExercise];
       return createAsyncCreator(
-        types.ADD_EXCERCISE,
-        types.ADD_EXCERCISE_COMPLETE,
+        types.ADD_EXERCISE,
+        types.ADD_EXERCISE_COMPLETE,
         () => AsyncStorage.setItem('currentWorkout', updatedWorkout)
       );
     })

@@ -12,35 +12,35 @@ import LinearGradient from 'react-native-linear-gradient';
 import { SearchBar } from './SearchBar';
 import Button from 'apsl-react-native-button';
 
-export class ExcerciseList extends Component {
+export class ExerciseList extends Component {
   constructor() {
     super();
     const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
-      matchingExcercises: ds.cloneWithRows([])
+      matchingExercises: ds.cloneWithRows([])
     };
   }
 
   closeModal = () => {
-    this.setState({matchingExcercises: this.state.matchingExcercises.cloneWithRows([])});
+    this.setState({matchingExercises: this.state.matchingExercises.cloneWithRows([])});
     this.props.closeModal();
   }
 
   addExcerise = (excercise) => {
-    this.props.addExcercise(excercise)
+    this.props.addExercise(excercise)
     .then(() => this.props.closeModal());
   }
 
   handleSearch = (searchTerm) => {
     let newState;
     if (!searchTerm || searchTerm.length < 3) {
-      newState = this.state.matchingExcercises.cloneWithRows([]);
+      newState = this.state.matchingExercises.cloneWithRows([]);
     } else {
-      newState = this.state.matchingExcercises.cloneWithRows(
-        fuzzySearch(searchTerm, this.props.excercises, 'name')
+      newState = this.state.matchingExercises.cloneWithRows(
+        fuzzySearch(searchTerm, this.props.exercises, 'name')
       );
     }
-    this.setState({matchingExcercises: newState});
+    this.setState({matchingExercises: newState});
   }
 
   render() {
@@ -55,7 +55,7 @@ export class ExcerciseList extends Component {
             style={styles.topbar}
           >
             <SearchBar
-              placeholder={'search for excercises'}
+              placeholder={'search for exercises'}
               autoFocus
               containerStyle={styles.searchBar}
               style={styles.input}
@@ -72,7 +72,7 @@ export class ExcerciseList extends Component {
           </LinearGradient>
         </Topbar>
         <ListView
-          dataSource={this.state.matchingExcercises}
+          dataSource={this.state.matchingExercises}
           renderRow={rowData => (
             <TouchableWithoutFeedback onPress={() => this.addExcerise.call(this, rowData)}>
               <View style={styles.row}>

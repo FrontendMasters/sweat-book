@@ -1,14 +1,14 @@
 import React from 'react';
 import { Modal } from 'react-native';
-import { ExcerciseList } from './ExcerciseList';
+import { ExerciseList } from './ExerciseList';
 
-export const ExcerciseModal = (props) => (
+export const ExerciseModal = (props) => (
   <Modal
     style={{ flex: 1 }}
     animationType={'slide'}
     visible={props.visible}
     onRequestClose={props.closeModal}
   >
-    <ExcerciseList {...props} />
+    <ExerciseList {...props} />
   </Modal>
 );

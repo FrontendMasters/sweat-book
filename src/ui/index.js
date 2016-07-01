@@ -1,4 +1,4 @@
 export { Topbar } from './Topbar';
-export { ExcerciseModal } from './ExceriseModal';
+export { ExerciseModal } from './ExceriseModal';
 export { SearchBar } from './SearchBar';
-export { ExcerciseList } from './ExcerciseList';
+export { ExerciseList } from './ExerciseList';

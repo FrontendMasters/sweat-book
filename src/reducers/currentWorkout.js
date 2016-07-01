@@ -4,7 +4,7 @@ export const currentWorkout = (state = [], { type, payload }) => {
   switch (type) {
     case types.FETCH_CURRENT_WORKOUT_COMPLETE:
       return payload || [];
-    case types.ADD_EXCERCISE_COMPLETE:
+    case types.ADD_EXERCISE_COMPLETE:
       return payload;
     default:
       return state;

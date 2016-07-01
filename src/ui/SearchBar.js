@@ -13,7 +13,8 @@ export class SearchBar extends Component {
       searchTerm: ''
     }
   }
-  handleTextChange = ({nativeEvent}) => {
+  
+  handleTextChange = ({ nativeEvent }) => {
     const { text } = nativeEvent;
     this.props.onTextChange(text)
     this.setState({searchTerm: text});

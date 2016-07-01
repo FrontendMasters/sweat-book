@@ -2,21 +2,21 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import Button from 'apsl-react-native-button';
-import { Topbar, ExcerciseModal } from '../ui';
+import { Topbar, ExerciseModal } from '../ui';
 import {
   View,
   Text,
   StyleSheet
 } from 'react-native';
-import { fetchCurrentWorkout, addExcerciseToCurrentWorkout } from '../actions/actionCreators';
-import { setExcerciseModalVisibility } from '../actions/actions';
+import { fetchCurrentWorkout, addExerciseToCurrentWorkout } from '../actions/actionCreators';
+import { setExerciseModalVisibility } from '../actions/actions';
 
 const mapStateToProps = (state) => ({
   user: state.user,
   currentWorkout: state.currentWorkout,
   activeTab: state.ui.activeTab,
   excerciseModal: state.ui.excerciseModal,
-  excercises: state.excercises,
+  exercises: state.exercises,
   categories: state.categories
 });
 
@@ -25,10 +25,10 @@ const mapActionsToProps = (dispatch) => ({
     return dispatch(fetchCurrentWorkout());
   },
   setModalVisibility(visible) {
-    return dispatch(setExcerciseModalVisibility(visible));
+    return dispatch(setExerciseModalVisibility(visible));
   },
-  addExcercise(excercise) {
-    return dispatch(addExcerciseToCurrentWorkout(excercise));
+  addExercise(excercise) {
+    return dispatch(addExerciseToCurrentWorkout(excercise));
   }
 });
 
@@ -37,14 +37,14 @@ class Container extends Component {
     user: {},
     currentWorkout: [],
     activeTab: 0,
-    excercises: [],
+    exercises: [],
     categories: []
   }
   componentDidMount() {
     this.props.fetchCurrentWorkout();
   }
 
-  // launchAddExcerciseModal = () => {}
+  // launchAddExerciseModal = () => {}
 
   render() {
     return (
@@ -61,7 +61,7 @@ class Container extends Component {
           <View style={styles.currentWorkout}>
             {!this.props.currentWorkout.length ? (
               <View style={styles.addSomeExecercises}>
-                <Text style={styles.bigText}>add some excercises</Text>
+                <Text style={styles.bigText}>add some exercises</Text>
                 <Button
                   onPress={() => this.props.setModalVisibility(true)}
                   style={styles.plusButton}
@@ -71,15 +71,15 @@ class Container extends Component {
               </View>
             ) : (
               <Text>
-                here are your excercises
+                here are your exercises
               </Text>
             )}
           </View>
         </LinearGradient>
-        <ExcerciseModal
-          addExcercise={this.props.addExcercise}
+        <ExerciseModal
+          addExercise={this.props.addExercise}
           categories={this.props.categories}
-          excercises={this.props.excercises}
+          exercises={this.props.exercises}
           visible={this.props.excerciseModal}
           closeModal={() => this.props.setModalVisibility(false)}
         />

@@ -1,4 +1,4 @@
-export const excercises = [
+export const exercises = [
   { name: 'flat dumbbell bench press', category: { id: 4, name: 'Chest', type: 'Weight Training' } },
   { name: 'flat barbell bench press', category: { id: 4, name: 'Chest', type: 'Weight Training' } },
   { name: 'inclince dumbbell bench press', category: { id: 4, name: 'Chest', type: 'Weight Training' } },
