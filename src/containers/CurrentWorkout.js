@@ -8,14 +8,16 @@ import {
   Text,
   StyleSheet
 } from 'react-native';
-import { fetchCurrentWorkout } from '../actions/actionCreators';
+import { fetchCurrentWorkout, addExcerciseToCurrentWorkout } from '../actions/actionCreators';
 import { setExcerciseModalVisibility } from '../actions/actions';
 
 const mapStateToProps = (state) => ({
   user: state.user,
   currentWorkout: state.currentWorkout,
   activeTab: state.ui.activeTab,
-  excerciseModal: state.ui.excerciseModal
+  excerciseModal: state.ui.excerciseModal,
+  excercises: state.excercises,
+  categories: state.categories
 });
 
 const mapActionsToProps = (dispatch) => ({
@@ -24,6 +26,9 @@ const mapActionsToProps = (dispatch) => ({
   },
   setModalVisibility(visible) {
     return dispatch(setExcerciseModalVisibility(visible));
+  },
+  addExcercise(excercise) {
+    return dispatch(addExcerciseToCurrentWorkout(excercise));
   }
 });
 
@@ -31,7 +36,9 @@ class Container extends Component {
   static defaultProps = {
     user: {},
     currentWorkout: [],
-    activeTab: 0
+    activeTab: 0,
+    excercises: [],
+    categories: []
   }
   componentDidMount() {
     this.props.fetchCurrentWorkout();
@@ -70,6 +77,9 @@ class Container extends Component {
           </View>
         </LinearGradient>
         <ExcerciseModal
+          addExcercise={this.props.addExcercise}
+          categories={this.props.categories}
+          excercises={this.props.excercises}
           visible={this.props.excerciseModal}
           closeModal={() => this.props.setModalVisibility(false)}
         />

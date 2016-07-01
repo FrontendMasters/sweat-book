@@ -4,8 +4,8 @@ export const createAsyncCreator = (startAction, endAction, asycnFn) => (
   dispatch => {
     dispatch(createAction(startAction)());
     const dispatchEndAction = createAction(endAction);
-    asycnFn(dispatch)
-    .then(result => dispatch(dispatch(result)))
+    return asycnFn(dispatch)
+    .then(result => dispatch(dispatchEndAction(result)))
     .catch(e => {
       console.error(e);
       dispatch(dispatchEndAction(e));

@@ -1,12 +1,14 @@
 import { user } from './user';
-import { excericses } from './excercises';
+import { excercises } from './excercises';
 import { ui } from './ui';
 import { currentWorkout } from './currentWorkout';
+import { categories } from './categories';
 import { combineReducers } from 'redux';
 
 export default combineReducers({
   user,
-  excericses,
+  excercises,
   ui,
-  currentWorkout
+  currentWorkout,
+  categories
 });
