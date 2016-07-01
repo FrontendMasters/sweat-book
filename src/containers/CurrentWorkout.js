@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 import LinearGradient from 'react-native-linear-gradient';
 import Button from 'apsl-react-native-button';
-import { Topbar, ExerciseModal } from '../ui';
+import { Topbar, ExerciseModal, WorkoutList } from '../ui';
 import {
   View,
   Text,
@@ -44,8 +44,6 @@ class Container extends Component {
     this.props.fetchCurrentWorkout();
   }
 
-  // launchAddExerciseModal = () => {}
-
   render() {
     return (
       <View style={styles.container}>
@@ -59,21 +57,10 @@ class Container extends Component {
             </Text>
           </Topbar>
           <View style={styles.currentWorkout}>
-            {!this.props.currentWorkout.length ? (
-              <View style={styles.addSomeExecercises}>
-                <Text style={styles.bigText}>add some exercises</Text>
-                <Button
-                  onPress={() => this.props.setModalVisibility(true)}
-                  style={styles.plusButton}
-                  textStyle={styles.plus}
-                  children={'+'}
-                />
-              </View>
-            ) : (
-              <Text>
-                here are your exercises
-              </Text>
-            )}
+            <WorkoutList
+              setModalVisibility={this.props.setModalVisibility}
+              currentWorkout={this.props.currentWorkout}
+            />
           </View>
         </LinearGradient>
         <ExerciseModal
@@ -107,22 +94,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center'
-  },
-  addSomeExecercises: {
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-  bigText: {
-    fontSize: 36,
-    color: 'white'
-  },
-  plusButton: {
-    borderStyle: null,
-    borderWidth: 0
-  },
-  plus: {
-    color: 'black',
-    fontSize: 60
   }
 });
 

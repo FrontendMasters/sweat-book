@@ -19,6 +19,7 @@ export class Main extends Component {
     return (
       <View style={{flex: 1}}>
         <TabView
+          tabBarTextStyle={{ fontSize: 30 }}
           tabBarPosition="overlayBottom"
           onChangeTab={this.handleTabChange}
         >
@@ -27,8 +28,6 @@ export class Main extends Component {
             activeTab={this.state.activeTab}
           />
           <Text tabLabel="yo">yo</Text>
-          <Text tabLabel="me">me</Text>
-          <Text tabLabel="hug">hug</Text>
         </TabView>
       </View>
     );

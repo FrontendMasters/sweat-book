@@ -11,6 +11,7 @@ import { Topbar } from './Topbar';
 import LinearGradient from 'react-native-linear-gradient';
 import { SearchBar } from './SearchBar';
 import Button from 'apsl-react-native-button';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export class ExerciseList extends Component {
   constructor() {
@@ -66,7 +67,7 @@ export class ExerciseList extends Component {
                 onPress={this.closeModal}
                 textStyle={styles.close}
                 style={styles.closeButton}
-                children={'X'}
+                children={<Icon name="cancel" size={34} />}
               />
             </View>
           </LinearGradient>
