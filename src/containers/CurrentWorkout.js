@@ -12,12 +12,9 @@ import { fetchCurrentWorkout, addExerciseToCurrentWorkout } from '../actions/act
 import { setExerciseModalVisibility } from '../actions/actions';
 
 const mapStateToProps = (state) => ({
-  user: state.user,
   currentWorkout: state.currentWorkout,
-  activeTab: state.ui.activeTab,
   exerciseModal: state.ui.exerciseModal,
   exercises: state.exercises,
-  categories: state.categories
 });
 
 const mapActionsToProps = (dispatch) => ({
