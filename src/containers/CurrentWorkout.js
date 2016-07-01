@@ -9,7 +9,7 @@ import {
   StyleSheet
 } from 'react-native';
 import { fetchCurrentWorkout, addExerciseToCurrentWorkout } from '../actions/actionCreators';
-import { setExerciseModalVisibility } from '../actions/actions';
+import { setExerciseModalVisibility, addExercise } from '../actions/actions';
 
 const mapStateToProps = (state) => ({
   currentWorkout: state.currentWorkout,
@@ -20,6 +20,9 @@ const mapStateToProps = (state) => ({
 const mapActionsToProps = (dispatch) => ({
   setModalVisibility(visible) {
     return dispatch(setExerciseModalVisibility(visible));
+  },
+  addExercise(exercise) {
+    return dispatch(addExercise(exercise));
   }
 });
 
@@ -29,7 +32,7 @@ class Container extends Component {
     exercises: []
   }
   componentDidMount() {
-    this.props.fetchCurrentWorkout();
+    // this.props.fetchCurrentWorkout();
   }
 
   render() {
@@ -52,6 +55,7 @@ class Container extends Component {
           </View>
         </LinearGradient>
         <ExerciseModal
+          addExercise={this.props.addExercise}
           exercises={this.props.exercises}
           visible={this.props.exerciseModal}
           closeModal={() => this.props.setModalVisibility(false)}

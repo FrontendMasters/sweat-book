@@ -21,7 +21,12 @@ export class ExerciseList extends Component {
       matchingExercises: ds.cloneWithRows([])
     };
   }
-
+  
+  handlePress(exercise) {
+    this.props.addExercise(exercise);
+    this.props.closeModal();
+  }
+  
   closeModal = () => {
     this.setState({matchingExercises: this.state.matchingExercises.cloneWithRows([])});
     this.props.closeModal();
@@ -70,12 +75,13 @@ export class ExerciseList extends Component {
         <ListView
           dataSource={this.state.matchingExercises}
           renderRow={exercise => (
-
+            <TouchableWithoutFeedback onPress={() => this.handlePress.call(this, exercise)}>
               <View style={styles.row}>
                 <Text style={styles.rowName}>
                   {exercise.name}
                 </Text>
               </View>
+            </TouchableWithoutFeedback>
           )}
         />
       </View>
