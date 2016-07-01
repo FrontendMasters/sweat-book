@@ -21,24 +21,15 @@ const mapStateToProps = (state) => ({
 });
 
 const mapActionsToProps = (dispatch) => ({
-  fetchCurrentWorkout() {
-    return dispatch(fetchCurrentWorkout());
-  },
   setModalVisibility(visible) {
     return dispatch(setExerciseModalVisibility(visible));
-  },
-  addExercise(exercise) {
-    return dispatch(addExerciseToCurrentWorkout(exercise));
   }
 });
 
 class Container extends Component {
   static defaultProps = {
-    user: {},
     currentWorkout: [],
-    activeTab: 0,
-    exercises: [],
-    categories: []
+    exercises: []
   }
   componentDidMount() {
     this.props.fetchCurrentWorkout();
@@ -64,8 +55,6 @@ class Container extends Component {
           </View>
         </LinearGradient>
         <ExerciseModal
-          addExercise={this.props.addExercise}
-          categories={this.props.categories}
           exercises={this.props.exercises}
           visible={this.props.exerciseModal}
           closeModal={() => this.props.setModalVisibility(false)}

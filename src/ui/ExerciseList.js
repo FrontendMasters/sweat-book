@@ -27,11 +27,6 @@ export class ExerciseList extends Component {
     this.props.closeModal();
   }
 
-  addExercise = (exercise) => {
-    this.props.addExercise(exercise)
-    .then(() => this.props.closeModal());
-  }
-
   handleSearch = (searchTerm) => {
     let newState;
     if (!searchTerm || searchTerm.length < 3) {
@@ -74,14 +69,13 @@ export class ExerciseList extends Component {
         </Topbar>
         <ListView
           dataSource={this.state.matchingExercises}
-          renderRow={rowData => (
-            <TouchableWithoutFeedback onPress={() => this.addExercise.call(this, rowData)}>
+          renderRow={exercise => (
+
               <View style={styles.row}>
                 <Text style={styles.rowName}>
-                  {rowData.name}
+                  {exercise.name}
                 </Text>
               </View>
-            </TouchableWithoutFeedback>
           )}
         />
       </View>
